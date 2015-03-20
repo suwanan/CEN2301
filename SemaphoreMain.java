@@ -1,6 +1,5 @@
 package th.ac.crru.ce.os;
 
-import java.util.concurrent.Semaphore;
 
 /**
  * Created by Anusorn on 3/7/2015.
@@ -10,7 +9,6 @@ import java.util.concurrent.Semaphore;
 class Account {
     private String AccountNumber;
     private double AccountBalance;
-    Semaphore semaphore = new Semaphore(1);
 
     public String getAccountNumber() {
         return AccountNumber;
@@ -29,9 +27,7 @@ class Account {
         if (amount < 0) {
             return false;
         } else {
-            semaphore.acquireUninterruptibly();
             AccountBalance = AccountBalance + amount;
-            semaphore.release();
             return true;
         }
     }
@@ -41,9 +37,7 @@ class Account {
         if (amount > AccountBalance) {
             return false;
         } else {
-            semaphore.acquireUninterruptibly();
             AccountBalance = AccountBalance - amount;
-            semaphore.release();
             return true;
         }
     }
