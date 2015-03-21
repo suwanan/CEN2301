@@ -1,11 +1,6 @@
 package th.ac.crru.ce.os;
 
 
-/**
- * Created by Anusorn on 3/7/2015.
- *
- */
-
 class Account {
     private String AccountNumber;
     private double AccountBalance;
